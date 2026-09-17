@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RideRate</string>
+    <string name="accessibility_service_description">Reads visible Uber Driver offer text only while RideRate monitoring is active.</string>
+</resources>

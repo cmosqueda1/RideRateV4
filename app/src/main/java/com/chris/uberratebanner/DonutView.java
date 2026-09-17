@@ -1,0 +1,6 @@
+package com.chris.uberratebanner;
+import android.content.*;import android.graphics.*;import android.view.*;
+public class DonutView extends View{private final Paint p=new Paint(Paint.ANTI_ALIAS_FLAG);private int a,b,c;private int ca,cb,cc;public DonutView(Context x){super(x);setMinimumHeight(UiKit.dp(x,110));}
+ public void setData(int x,int y,int z,int c1,int c2,int c3){a=x;b=y;c=z;ca=c1;cb=c2;cc=c3;invalidate();}
+ @Override protected void onDraw(Canvas cv){super.onDraw(cv);float d=getResources().getDisplayMetrics().density;float s=Math.min(getWidth(),getHeight())-24*d;RectF r=new RectF((getWidth()-s)/2,(getHeight()-s)/2,(getWidth()+s)/2,(getHeight()+s)/2);p.setStyle(Paint.Style.STROKE);p.setStrokeWidth(15*d);p.setStrokeCap(Paint.Cap.BUTT);int total=a+b+c;if(total==0){p.setColor(UiKit.DIVIDER);cv.drawArc(r,0,360,false,p);return;}float start=-90;int[] n={a,b,c},col={ca,cb,cc};for(int i=0;i<3;i++){float sweep=360f*n[i]/total;p.setColor(col[i]);cv.drawArc(r,start,sweep,false,p);start+=sweep;}p.setStyle(Paint.Style.FILL);p.setColor(UiKit.TEXT);p.setTextAlign(Paint.Align.CENTER);p.setTypeface(Typeface.DEFAULT_BOLD);p.setTextSize(18*d);cv.drawText(""+total,getWidth()/2f,getHeight()/2f+6*d,p);}
+}

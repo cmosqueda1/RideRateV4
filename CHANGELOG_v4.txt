@@ -1,0 +1,44 @@
+RideRate v4
+===========
+
+This build uses the user's v4 release numbering and consolidates the current Android test branch.
+
+Changes in v4
+-------------
+- Ride multi-stop timing: hard-coded +2 minutes per stop.
+  - 1 stop = +2 min
+  - 2 stops = +4 min
+  - 3 stops = +6 min
+- Delivery wait buffer remains configurable in Settings, default 2 minutes (0–15 min).
+- Delivery cards can be recognized from an explicit "total" duration even if OCR does not capture the word "Delivery".
+- Ride time parsing uses first/last relevant duration rows when explicit pickup/trip wording is absent.
+- Banner background remains fixed at 80% opacity; text remains fully opaque.
+- Downloaded Ride Snapshot banner updated to the same 80% opacity.
+- Bottom navigation redesigned:
+  - shorter/cleaner navigation area
+  - larger icons
+  - clearly separated Home / History / Settings controls
+  - preserves device navigation-bar safe inset
+- History action row redesigned:
+  - compact Date / Sort / Delete / CSV controls
+  - larger visual icons
+  - clearer separation between buttons
+- History retains:
+  - KPI metrics + Bottom/Mid/Top donut chart
+  - date filters
+  - collapsible day groups
+  - optional date grouping
+  - newest/oldest and high/low rate sorting
+  - delete individual offers, whole days, or clear all
+  - CSV export using device-local date/time
+  - one-line record format that wraps when required:
+    Rate: $33.88/hr | Offer $13.55 / 24 min
+- Offer Details now shows Stops and the applied +2 min/stop buffer for Ride offers.
+- Automatic Pictures/RideRate export remains removed. Screenshots are exported only when Download Ride Snapshot is tapped.
+- Existing floating RideRate bubble, tap-to-OCR workflow, notification fix, safe-area behavior, icon, threshold settings, and private verification images are retained.
+
+Current live OCR behavior
+-------------------------
+- OCR is still triggered manually by tapping the floating bubble.
+- Live OCR still analyzes the lower 50% of the screen in this v4 build.
+- Expansion to a larger capture region for unusually tall Uber cards remains a later parser/capture revision, per testing decision.

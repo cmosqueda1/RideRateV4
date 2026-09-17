@@ -1,0 +1,27 @@
+RideRate v4 - clean deployment
+
+Upload the CONTENTS of this folder to the ROOT of a new GitHub repository:
+
+.github/
+app/
+build.gradle
+gradle.properties
+settings.gradle
+README.md
+CHANGELOG_v4.txt
+UPLOAD_TO_GITHUB.txt
+build-apk.yml
+
+IMPORTANT:
+GitHub's browser uploader may skip the hidden .github folder.
+If Actions does not show "Build Android APK", create/upload the workflow at:
+.github/workflows/build-apk.yml
+using the included root-level build-apk.yml as the exact file contents.
+
+The workflow runs automatically on a push to main/master and can also be run manually.
+You do not need to start a second manual run if the commit already triggered one.
+
+Successful build artifact:
+RideRate-v4-APK
+
+Extract the artifact ZIP and install app-debug.apk on the Android test phone.
