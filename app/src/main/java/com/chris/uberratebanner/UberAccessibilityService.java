@@ -157,8 +157,14 @@ public class UberAccessibilityService extends AccessibilityService {
                         if (hardware == null) { finishBusy(); return; }
                         software = hardware.copy(Bitmap.Config.ARGB_8888, false);
                         if (software == null) { finishBusy(); return; }
-                        int top = software.getHeight() / 2;
-                        Bitmap lower = Bitmap.createBitmap(software, 0, top, software.getWidth(), software.getHeight() - top);
+                        int top = Math.round(software.getHeight() * 0.30f);
+                        Bitmap lower = Bitmap.createBitmap(
+                                software,
+                                0,
+                                top,
+                                software.getWidth(),
+                                software.getHeight() - top
+                        );
                         software.recycle(); software = null;
                         analyzer.analyze(lower, new OfferAnalyzer.Callback() {
                             @Override public void onSuccess(OfferParser.ParsedOffer offer) { saveResult(offer, lower); }
